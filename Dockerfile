@@ -24,6 +24,10 @@ RUN apt-get -y install build-essential
 RUN apt-get -y install pip
 RUN pip install cmake
 
-# Install Ptolemy
+##############################################################################
+#                Install Ptolemy II               #
+##############################################################################
+# configure and build with ant
 RUN cd ptII11.0.1;export PTII=`pwd`;./configure;$PTII/bin/ant
-CMD cd ptII11.0.1;export PTII=`pwd`;./bin/vergil 
+# launch the Ptolemy GUI: Vergil
+CMD cd ptII11.0.1;export PTII=`pwd`;./bin/vergil
